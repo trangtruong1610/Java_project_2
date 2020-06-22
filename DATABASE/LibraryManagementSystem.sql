@@ -1,0 +1,99 @@
+CREATE DATABASE Circle_JavaProject2
+GO
+
+USE Circle_JavaProject2
+GO
+
+CREATE TABLE Notification (
+	NotiNo INT IDENTITY(1,1) PRIMARY KEY,
+	NotiSubject VARCHAR(255),
+	NotiContent VARCHAR(255) 
+)
+GO
+
+CREATE TABLE BookDetail (
+	BookNo INT IDENTITY(1,1) PRIMARY KEY,
+	Title VARCHAR(255),
+	Publisher VARCHAR(255),
+	Author VARCHAR(100),
+	ISBN VARCHAR(13),
+	Pages INT,
+	Status BIT DEFAULT 1
+)
+GO
+
+CREATE TABLE Category (
+	CategoryNo INT IDENTITY(1,1) PRIMARY KEY,
+	CategoryName VARCHAR(100)
+)
+GO
+
+CREATE TABLE Shelf (
+	ShelfNo INT IDENTITY(1,1) PRIMARY KEY,
+	Location VARCHAR(255) 
+)
+GO
+
+CREATE TABLE BookItem (
+	BookItemNo INT IDENTITY(1,1),
+	BookNo INT REFERENCES BookDetail (BookNo),
+	ShelfNo INT REFERENCES Shelf (ShelfNo),
+	BookID VARCHAR(10) PRIMARY KEY,
+	Status BIT DEFAULT 1
+)
+GO
+
+CREATE TABLE BookCategory (
+	BookNo INT PRIMARY KEY REFERENCES BookDetail (BookNo),
+	CategoryNo INT REFERENCES Category (CategoryNo)
+)
+GO
+
+CREATE TABLE Account (
+	AccountNo INT IDENTITY(1,1),
+	AccountName VARCHAR(100),
+	LibraryID VARCHAR(10) PRIMARY KEY,
+	Password VARCHAR(20),
+	IsAdmin BIT,
+	DJoined DATE  DEFAULT GETDATE(),
+	DExpired DATE,
+	Point INT DEFAULT 100,
+	Status BIT DEFAULT 1
+)
+GO
+
+CREATE TABLE ImageLink (
+	ImgNo INT IDENTITY(1,1) PRIMARY KEY,
+	BookNo INT REFERENCES BookDetail (BookNo),
+	Link VARCHAR(255),
+	IsCover BIT,
+	Status BIT DEFAULT 1
+)
+GO
+
+CREATE TABLE Reservation (
+	ReserveNo INT IDENTITY(1,1) PRIMARY KEY,
+	LibraryID VARCHAR(10) REFERENCES Account (LibraryID),
+	BookID VARCHAR(10) REFERENCES BookItem (BookID),
+	DReserve DATE,
+	Status BIT DEFAULT 1
+)
+GO
+
+CREATE TABLE LendingHistory (
+	LendNo INT IDENTITY(1,1) PRIMARY KEY,
+	LibraryID VARCHAR(10) REFERENCES Account (LibraryID),
+	BookID VARCHAR(10) REFERENCES BookItem (BookID),
+	DIssued DATE,
+	DReturned DATE,
+	Status BIT DEFAULT 1
+)
+GO
+
+CREATE TABLE Fine (
+	FineNo INT IDENTITY(1,1) PRIMARY KEY,
+	LendNo INT REFERENCES LendingHistory (LendNo),
+	OverduedDate INT,
+	FineAmount INT 
+)
+GO

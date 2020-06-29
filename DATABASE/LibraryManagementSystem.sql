@@ -32,8 +32,14 @@ GO
 
 CREATE TABLE Category (
 	CategoryNo INT IDENTITY PRIMARY KEY,
-	BookNo INT REFERENCES BookDetail(BookNo),
 	CategoryName VARCHAR(100)
+)
+GO
+
+CREATE TABLE BookCategory (
+	CategoryNo INT REFERENCES Category(CategoryNo),
+	BookNo INT REFERENCES BookDetail(BookNo)
+	PRIMARY KEY (CategoryNo, BookNo)
 )
 GO
 
@@ -129,10 +135,16 @@ GO
 CREATE TRIGGER FineBook ON Fine
 FOR INSERT
 AS BEGIN
-
 	INSERT INTO Fine(LendNo, OverduedDate, FineAmount)
 	SELECT LendNo, DATEDIFF(day, GETDATE(), DIssued), DATEDIFF(day, GETDATE(), D_EstReturn)*5
 	FROM LendingHistory
 	WHERE DATEDIFF(day, GETDATE(), DIssued) > 30 AND Status = 1 AND LendNo NOT IN (SELECT LendNo FROM Fine)
 END
 GO
+
+CREATE PROC LoadCategory
+AS BEGIN
+	SELECT * FROM Category
+	ORDER BY CategoryName ASC
+END
+GO	

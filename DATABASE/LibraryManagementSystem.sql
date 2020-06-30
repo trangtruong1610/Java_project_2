@@ -142,9 +142,56 @@ AS BEGIN
 END
 GO
 
+CREATE TRIGGER DefineBookID ON BookItem
+FOR INSERT
+AS BEGIN
+	DECLARE @BookNo INT,
+			@YAdd DATE,
+			@MAdd DATE,
+			@Count INT,
+			@BookID VARCHAR(10)
+	
+	SET @YAdd = RIGHT(YEAR(GETDATE()),4);
+	SET @MAdd = RIGHT(MONTH(GETDATE()),2);
+	SET @Count = (SELECT COUNT(BookNo) FROM BookItem AS CountExisted);
+	SET @BookID = CONCAT(@YAdd,@MAdd,@BookNo, @Count);
+
+	INSERT INTO BookItem(BookID) VALUES (@BookID)
+END
+GO
+
+CREATE TRIGGER DefineLibraryID ON Account
+FOR INSERT
+AS BEGIN
+	DECLARE @AccountNo INT,
+			@YAdd DATE,
+			@MAdd DATE,
+			@Char VARCHAR(3),
+			@Index INT,
+			@Count INT,
+			@LibraryID VARCHAR(10)
+
+	SET @Count = @AccountNo%999 + 1;
+	SET @Index = @AccountNo/999;
+	SET @Char = CHAR(65 + @Index);
+	SET @YAdd = RIGHT(YEAR(GETDATE()),4);
+	SET @MAdd = RIGHT(MONTH(GETDATE()),2);
+	SET @LibraryID = CONCAT(@YAdd,@MAdd,@Char,@Count);
+
+	INSERT INTO Account(LibraryID) VALUES (@LibraryID)
+END
+GO
+
 CREATE PROC LoadCategory
 AS BEGIN
 	SELECT * FROM Category
 	ORDER BY CategoryName ASC
 END
 GO	
+
+CREATE PROC ShelfLocation (@ShelfNo int)
+AS BEGIN
+	SELECT Location FROM Shelf
+	WHERE ShelfNo = @ShelfNo
+END
+GO

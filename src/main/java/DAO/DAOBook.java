@@ -17,11 +17,37 @@ import entity.Book;
 
 
 public class DAOBook {
-	public void insertBook(Book book) {
+
+	public void InsertMultiImg (int PicNo, byte[][] img, int bookNo) {
 		try(
 				var con = DriverManager.getConnection(
 						ConnecToProperties.getConnectionUrl());
-					PreparedStatement ps = con.prepareCall("{call insertBook(?,?,?,?,?,?,?,?)}");
+					PreparedStatement ps = con.prepareCall("{Call InsertImage(?,?,?)}");
+			)
+				
+		{
+		
+		img = new byte[PicNo][];
+		
+		for(int i = 0; i < PicNo; i++) {
+			
+			
+//			
+//			ps.setInt(1, bookNo);
+//			ps.setString(2, byte[i][].toString());
+//			ps.setBoolean(3, x);
+//			} 
+		}catch (Exception e) {
+			JOptionPane.showMessageDialog(null, e.getMessage(),"info",JOptionPane.INFORMATION_MESSAGE);
+		}
+		
+	}
+
+	public void insertBook(Book book, byte[] img, Boolean isCover) {
+		try(
+				var con = DriverManager.getConnection(
+						ConnecToProperties.getConnectionUrl());
+					PreparedStatement ps = con.prepareCall("{call insertBook(?,?,?,?,?,?,?)}");
 					)
 				
 		{	
@@ -32,14 +58,27 @@ public class DAOBook {
 			ps.setInt(5, book.getPages());
 			ps.setInt(6, book.getShelfNo());
 			ps.setDate(7, new java.sql.Date(book.getYpublished().getTime()));
-			ps.setBytes(8, book.getPicture());
 			ps.executeUpdate();
+			
+//			var result = ps.getGeneratedKeys();
+//			result.getInt(1);
+//			
+//			var ps1 = con.prepareCall("{Call InsertImage(?,?,?)}");
+//			var image = new ImageLink();
+//			
+//			String img_str = (String) img.toString();			
+//			
+//			ps1.setInt(1, result.getInt(1));
+//			ps1.setString(2, img_str);
+//			ps1.setBoolean(3, isCover);
+			
 			JOptionPane.showMessageDialog(null, "insert success","success",JOptionPane.OK_OPTION);
 		} catch (Exception e) {
 			JOptionPane.showMessageDialog(null, e.getMessage(),"info",JOptionPane.INFORMATION_MESSAGE);
 		}
 		
 	}
+	
 	public void updateBook(Book book) {
 		try(
 				var con = DriverManager.getConnection(

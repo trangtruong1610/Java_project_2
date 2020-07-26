@@ -1,0 +1,97 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project version="4">
+  <component name="ChangeListManager">
+    <list default="true" id="ff69afa5-2eee-4097-83fb-e5e01dc6169d" name="Default Changelist" comment="">
+      <change beforePath="$PROJECT_DIR$/.classpath" beforeDir="false" afterPath="$PROJECT_DIR$/.classpath" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.settings/org.eclipse.jdt.core.prefs" beforeDir="false" afterPath="$PROJECT_DIR$/.settings/org.eclipse.jdt.core.prefs" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/db.properties" beforeDir="false" afterPath="$PROJECT_DIR$/db.properties" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/common/ConnecToProperties.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/common/ConnecToProperties.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/dao/DAOReservation.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/dao/DAOReservation.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/entity/LendingHistory.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/entity/LendingHistory.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/entity/Reservation.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/entity/Reservation.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/view/bookRequest.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/view/bookRequest.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/.gitignore" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/.gitignore" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/common/ConnecToProperties.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/common/ConnecToProperties.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/entity/Account.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/entity/Account.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/entity/BookCategory.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/entity/BookCategory.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/entity/BookDetail.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/entity/BookDetail.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/entity/BookItem.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/entity/BookItem.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/entity/Category.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/entity/Category.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/entity/Fine.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/entity/Fine.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/entity/ImageLink.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/entity/ImageLink.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/entity/LendingHistory.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/entity/LendingHistory.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/entity/Notification.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/entity/Notification.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/entity/Reservation.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/entity/Reservation.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/entity/Shelf.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/entity/Shelf.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/test/TestConnection.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/test/TestConnection.class" afterDir="false" />
+    </list>
+    <option name="SHOW_DIALOG" value="false" />
+    <option name="HIGHLIGHT_CONFLICTS" value="true" />
+    <option name="HIGHLIGHT_NON_ACTIVE_CHANGELIST" value="false" />
+    <option name="LAST_RESOLUTION" value="IGNORE" />
+  </component>
+  <component name="Git.Settings">
+    <option name="RECENT_GIT_ROOT_PATH" value="$PROJECT_DIR$/../.." />
+  </component>
+  <component name="ProjectId" id="1fDIjXrawXyfZU2eTFWkOeCrmp3" />
+  <component name="ProjectLevelVcsManager" settingsEditedManually="true" />
+  <component name="ProjectViewState">
+    <option name="hideEmptyMiddlePackages" value="true" />
+    <option name="showLibraryContents" value="true" />
+  </component>
+  <component name="PropertiesComponent">
+    <property name="RunOnceActivity.OpenProjectViewOnStart" value="true" />
+    <property name="RunOnceActivity.ShowReadmeOnStart" value="true" />
+    <property name="WebServerToolWindowFactoryState" value="false" />
+    <property name="aspect.path.notification.shown" value="true" />
+    <property name="last_opened_file_path" value="$PROJECT_DIR$" />
+  </component>
+  <component name="RunManager">
+    <configuration name="bookRequest" type="Application" factoryName="Application" temporary="true" nameIsGenerated="true">
+      <option name="MAIN_CLASS_NAME" value="view.bookRequest" />
+      <module name="Circle_JavaProject2" />
+      <extension name="coverage">
+        <pattern>
+          <option name="PATTERN" value="view.*" />
+          <option name="ENABLED" value="true" />
+        </pattern>
+      </extension>
+      <method v="2">
+        <option name="Make" enabled="true" />
+      </method>
+    </configuration>
+    <recent_temporary>
+      <list>
+        <item itemvalue="Application.bookRequest" />
+      </list>
+    </recent_temporary>
+  </component>
+  <component name="SvnConfiguration">
+    <configuration />
+  </component>
+  <component name="TaskManager">
+    <task active="true" id="Default" summary="Default task">
+      <changelist id="ff69afa5-2eee-4097-83fb-e5e01dc6169d" name="Default Changelist" comment="" />
+      <created>1595746371131</created>
+      <option name="number" value="Default" />
+      <option name="presentableId" value="Default" />
+      <updated>1595746371131</updated>
+      <workItem from="1595746374066" duration="90000" />
+    </task>
+    <servers />
+  </component>
+  <component name="TypeScriptGeneratedFilesManager">
+    <option name="version" value="2" />
+  </component>
+  <component name="XDebuggerManager">
+    <breakpoint-manager>
+      <breakpoints>
+        <line-breakpoint enabled="true" type="java-line">
+          <url>file://$PROJECT_DIR$/src/main/java/view/bookRequest.java</url>
+          <line>193</line>
+          <option name="timeStamp" value="1" />
+        </line-breakpoint>
+      </breakpoints>
+    </breakpoint-manager>
+  </component>
+</project>

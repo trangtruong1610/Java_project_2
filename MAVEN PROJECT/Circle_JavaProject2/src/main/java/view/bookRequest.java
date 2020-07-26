@@ -9,6 +9,7 @@ import javax.swing.border.EmptyBorder;
 import javax.swing.table.DefaultTableModel;
 
 import dao.DAOReservation;
+import entity.LendingHistory;
 import entity.Reservation;
 
 import javax.swing.JLabel;
@@ -28,6 +29,7 @@ import javax.swing.JLayeredPane;
 import javax.swing.JInternalFrame;
 import java.awt.Font;
 import java.awt.event.ActionListener;
+import java.util.Date;
 import java.awt.event.ActionEvent;
 import javax.swing.JScrollPane;
 import javax.swing.JTable;
@@ -84,6 +86,11 @@ public class bookRequest extends JFrame {
 		});
 		
 		JButton btnDenied = new JButton("Denied");
+		btnDenied.addActionListener(new ActionListener() {
+			public void actionPerformed(ActionEvent arg0) {
+				btnDeniedActionPerformed(arg0);
+			}
+		});
 		
 		btnLoadRequest = new JButton("Load Request");
 		btnLoadRequest.addActionListener(new ActionListener() {
@@ -143,31 +150,54 @@ public class bookRequest extends JFrame {
 		scrollPane.setViewportView(table);
 		contentPane.setLayout(gl_contentPane);
 	}
-	protected void btnAcceptActionPerformed(ActionEvent arg0) {
-	}
 	protected void btnLoadRequestActionPerformed(ActionEvent arg0) {
 		Load();
 	}
 	private void Load() {
-		var model = new DefaultTableModel();
+		DefaultTableModel model = new DefaultTableModel();
 		model.addColumn("ReserveNo");
 		model.addColumn("LibraryID");
 		model.addColumn("BookID");	
 		model.addColumn("DReserve");
 		model.addColumn("Status");
 
-		
+	String status = null;
 	for(Reservation re : DAOReservation.Load()) {
+		if (re.getStatus() == true) {
+			status = "pending";
+			}else {
+				status = "done";
+			}
 		model.addRow( new Object[] {
 				re.getReserveNo(),
-				re.getLibraryID(),
-				re.getBookID(),
+				DAOReservation.getLibraryID(re.getAccountNO()),
+				DAOReservation.getBookID(re.getBookID()),
 				re.getDReserve(),
-				re.getStatus(),
+				status,
 			});
 		}
 	
 		table.setModel(model);
+	}
+	protected void btnDeniedActionPerformed(ActionEvent arg0) {
+		String value = table.getValueAt(table.getSelectedRow(), 0).toString();
+		int id = Integer.parseInt(value);
+		DAOReservation.DeleteRequest(id);
+		Load();
+	}
+	
+	protected void btnAcceptActionPerformed(ActionEvent arg0) {
+		String value = table.getValueAt(table.getSelectedRow(), 0).toString().trim();
+		int id = Integer.parseInt(value);
+		
+		for(Reservation res : DAOReservation.getReservationInfo(id)) {
+			int resNo = id;
+			int accNo = res.getAccountNO();
+			int bookID = res.getBookID();
+			
+			DAOReservation.InsertLending(resNo, accNo, bookID);
+		}
+		Load();
 	}
 }
 

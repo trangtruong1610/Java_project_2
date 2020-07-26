@@ -4,6 +4,9 @@ import java.util.Date;
 
 public class LendingHistory {
 	private int LendNo;
+	private int ReserveNo;
+	private int AccountNo;
+	private int ItemNo;
 	private String LibraryID;
 	private int BookID;
 	private Date DIssued;
@@ -24,9 +27,33 @@ public class LendingHistory {
 	public int getLendNo() {
 		return LendNo;
 	}
+	
+	public int getReserveNo() {
+		return ReserveNo;
+	}
+
+	public int getAccountNo() {
+		return AccountNo;
+	}
+
+	public int getItemNo() {
+		return ItemNo;
+	}
 
 	public void setLendNo(int lendNo) {
 		LendNo = lendNo;
+	}
+	
+	public void setReserveNo(int ReserveNo) {
+		ReserveNo = ReserveNo;
+	}
+
+	public void setAccountNo(int AccountNo) {
+		AccountNo = AccountNo;
+	}
+
+	public void setItemNo(int ItemNo) {
+		ItemNo = ItemNo;
 	}
 
 	public String getLibraryID() {
@@ -71,7 +98,7 @@ public class LendingHistory {
 
 	@Override
 	public String toString() {
-		return "LendingHistory [LendNo=" + LendNo + ", LibraryID=" + LibraryID + ", BookID=" + BookID + ", DIssued="
+		return "LendingHistory [LendNo=" + LendNo + ", ReserveNo=" + ReserveNo + ", AccountNo=" + AccountNo + ", ItemNo=" + ItemNo + ", LibraryID=" + LibraryID + ", BookID=" + BookID + ", DIssued="
 				+ DIssued + ", DReturned=" + DReturned + ", Status=" + Status + "]";
 	} 
 }

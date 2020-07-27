@@ -103,15 +103,16 @@ public class DAOReservation {
 			ps.setInt(1, ID);
 			
 			ResultSet rs =  ps.executeQuery();
+			
 			while (rs.next()) {
 				Reservation res = new Reservation();
-				res.setReserveNo(rs.getInt(ID));
+				res.setReserveNo(ID);
 				res.setAccountNO(rs.getInt("AccountNo"));
 				res.setBookID(rs.getInt("ItemNo"));
 				res.setDReserve(rs.getDate("DReserve"));
 				res.setStatus(rs.getBoolean("Status"));
 				list.add(res);
-			}	
+				}	
 		} catch (Exception e) {
 			JOptionPane.showMessageDialog(null, e.getMessage(), "Info", JOptionPane.INFORMATION_MESSAGE);
 		}

@@ -26,6 +26,7 @@ import javax.swing.JTabbedPane;
 import javax.swing.JToolBar;
 import javax.swing.JDesktopPane;
 import javax.swing.JLayeredPane;
+import javax.swing.JOptionPane;
 import javax.swing.JInternalFrame;
 import java.awt.Font;
 import java.awt.event.ActionListener;
@@ -194,9 +195,9 @@ public class bookRequest extends JFrame {
 			int resNo = id;
 			int accNo = res.getAccountNO();
 			int bookID = res.getBookID();
-			
+			JOptionPane.showMessageDialog(null, id);
 			DAOReservation.InsertLending(resNo, accNo, bookID);
-		}
+			}
 		Load();
 	}
 }

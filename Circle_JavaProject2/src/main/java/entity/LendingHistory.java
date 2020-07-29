@@ -4,6 +4,7 @@ import java.util.Date;
 
 public class LendingHistory {
 	private int LendNo;
+	private int ReserveNo;
 	private String LibraryID;
 	private int AccountNo;
 	private int ItemNo;
@@ -14,8 +15,9 @@ public class LendingHistory {
 	
 	public LendingHistory() {}
 	
-	public LendingHistory(int lendNo, String libraryID, int bookID, Date dIssued, Date dReturned, Boolean status) {
+	public LendingHistory(int lendNo, int reserveNo, String libraryID, int bookID, Date dIssued, Date dReturned, Boolean status) {
 		LendNo = lendNo;
+		ReserveNo = reserveNo;
 		LibraryID = libraryID;
 		BookID = bookID;
 		DIssued = dIssued;
@@ -23,14 +25,6 @@ public class LendingHistory {
 		Status = status;
 	}
 	
-	public LendingHistory(int lendNo, int itemNo, Date dIssued, Date dReturned, Boolean status) {
-		LendNo = lendNo;
-		ItemNo = itemNo;
-		DIssued = dIssued;
-		DReturned = dReturned;
-		Status = status;
-	}
-
 	public int getLendNo() {
 		return LendNo;
 	}
@@ -38,6 +32,15 @@ public class LendingHistory {
 	public void setLendNo(int lendNo) {
 		LendNo = lendNo;
 	}
+	
+	public int getReserveNo() {
+		return ReserveNo;
+	}
+
+	public void setReserveNo(int reserveNo) {
+		ReserveNo = reserveNo;
+	}
+
 
 	public String getLibraryID() {
 		return LibraryID;
@@ -98,7 +101,7 @@ public class LendingHistory {
 
 	@Override
 	public String toString() {
-		return "LendingHistory [LendNo=" + LendNo + ", AccountNo=" + AccountNo + ", ItemNo=" + ItemNo + ", DIssued="
+		return "LendingHistory [LendNo=" + LendNo + ", ReserveNo=" + ReserveNo + ", AccountNo=" + AccountNo + ", ItemNo=" + ItemNo + ", DIssued="
 				+ DIssued + ", DReturned=" + DReturned + ", Status=" + Status + "]";
 	} 
 	
